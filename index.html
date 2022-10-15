@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crud</title>
+    <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+    <main class="d-flex justify-content-center">
+        <div class="content">
+            <h1>Crud LocalStorage</h1>
+            <h1 class="title">Crear</h1>
+            <div class="d-flex justify-content-center">
+                <div class="crear-ediar myx">
+                    <div class="form-groups">
+                        <label for="nombre" class="myx">Nombre</label>
+                        <input type="text" class="myx" name="nombre" id="nombre" placeholder="Ingresa el nombre">
+                    </div>
+                    <div class="form-groups">
+                        <label for="usuario" class="myx">Usuario</label>
+                        <input type="text" class="myx" name="usuario" id="usuario" placeholder="Ingresa el Usuario">
+                    </div>
+                    <div class="form-groups">
+                        <label for="correo" class="myx">Correo</label>
+                        <input type="text" class="myx" name="correo" id="correo" placeholder="Ingresa el Correo">
+                    </div>
+                    <div class="form-groups">
+                        <label for="descripcion" class="myx">Descripción</label>
+                        <textarea type="text" class="myx" rows="5" name="descripcion" id="descripcion" placeholder="Ingresa la Descripción"></textarea>
+                    </div>
+                    <div class="button-groups">
+                        <button type="button" class="myx btn btn-primary" id="crear">Crear</button>
+                        <button type="button" class="myx btn btn-warning d-none" id="eliminar">Editar</button>
+                        <button type="button" class="myx btn btn-danger" disabled>Cancelar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="listar myx">
+                <table id="tabla">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Usuario</th>
+                            <th>Correo</th>
+                            <th>Descripción</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                    <tfoot></tfoot>
+                </table>
+            </div>
+        </div>
+    </main>
+    <script src="./app.js"></script>
+</body>
+</html>

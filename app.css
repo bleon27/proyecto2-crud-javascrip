@@ -1,0 +1,89 @@
+.btn{
+    padding: 10px;
+    display: block;
+    cursor: pointer;
+}
+
+.btn:disabled{
+    background-color: #999999;
+    border: 5px solid #999999;
+    cursor: no-drop;
+}
+
+.btn-primary{
+    background-color: rgb(82, 82, 238);
+    border: 5px solid rgb(82, 82, 238, 0.1);
+    color: white;
+}
+
+.btn-warning{
+    background-color: rgb(206, 223, 59);
+    border: 5px solid rgb(206, 223, 59, 0.1);
+    color: white;
+}
+
+.btn-danger{
+    background-color: rgb(185, 80, 80);
+    border: 5px solid rgb(185, 80, 80, 0.1);
+    color: white;
+}
+
+.content{
+    width: 800px;
+}
+
+.d-none{
+    display: none;
+}
+
+.myx{
+    margin: 10px;
+}
+
+.d-flex{
+    display: flex;
+}
+.justify-content-center{
+    justify-content: center;
+}
+
+.form-groups{
+    display: flex;
+    align-items: center;
+}
+
+.crear-ediar{
+    width: 500px;
+    border: 1px solid black;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 20px;
+}
+
+.crear-ediar input, .crear-ediar textarea{
+    width: 100%;
+}
+
+.crear-ediar label{
+    width: 120px;
+}
+
+.button-groups{
+    display: flex;
+    justify-content: space-between;
+}
+
+.listar{
+    width: 800px;
+}
+
+table{
+    width: 100%;
+}
+
+input, textarea{
+    padding: 10px;
+}
