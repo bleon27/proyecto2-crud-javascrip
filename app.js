@@ -1,9 +1,8 @@
 window.onload = function () {
     let arregloData = [];
-    const btnCrear = document.getElementById('crear');
+    const btnCrear = document.getElementById('btn-crear');
     btnCrear.addEventListener('click', event => {
         let objetoDatos = {
-            id: 0,
             nombre: '',
             usuario: '',
             correo: '',
@@ -19,7 +18,7 @@ window.onload = function () {
         objetoDatos.usuario = usuario;
         objetoDatos.correo = correo;
         objetoDatos.descripcion = descripcion;
-
+        
         arregloData.push(objetoDatos);
         //logica del local storage
         if (localStorage.getItem('valores') == null) {
@@ -40,6 +39,7 @@ window.onload = function () {
             tabla.innerHTML = '';
             let datos = JSON.parse(localStorage.getItem('valores'));
 
+            id = 1;
             datos.forEach(element => {
                 let tr = document.createElement('tr');
                 let td1 = document.createElement('td');
@@ -48,15 +48,16 @@ window.onload = function () {
                 let td4 = document.createElement('td');
                 let td5 = document.createElement('td');
                 let td6 = document.createElement('td');
+                td6.className = 'd-flex justify-content-center'
                 
-                let textId = document.createTextNode(element.id+1);
+                let textId = document.createTextNode(id);
                 let textNombre = document.createTextNode(element.nombre);
                 let textUsuario = document.createTextNode(element.usuario);
                 let textCorreo = document.createTextNode(element.correo);
                 let textDescripcion = document.createTextNode(element.descripcion);
 
                 let botonEditar = document.createElement('button');
-                botonEditar.className = 'btn btn-warning';
+                botonEditar.className = 'btn btn-warning bnt-editar';
                 let textEditar = document.createTextNode('Editar');
                 botonEditar.addEventListener('click', event => {
                     alert('Editar');
@@ -64,7 +65,7 @@ window.onload = function () {
                 botonEditar.appendChild(textEditar);
 
                 let botonEliminiar = document.createElement('button');
-                botonEliminiar.className = 'btn btn-danger';
+                botonEliminiar.className = 'btn btn-danger btn-eliminar';
 
                 let textEliminar = document.createTextNode('Borrar');
                 botonEliminiar.addEventListener('click', event => {
@@ -89,7 +90,7 @@ window.onload = function () {
 
                 tabla.insertAdjacentElement("beforeend", tr);
                 //tabla.appendChild(tabla);
-
+                id++;
             });
         }
     }
