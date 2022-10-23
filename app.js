@@ -1,8 +1,11 @@
 window.onload = function () {
+    feather.replace({ 'aria-hidden': 'true' })
     let arregloData = [];
     const btnCrear = document.getElementById('btn-crear');
     const btnActualizar = document.getElementById('btn-actualizar');
     const btnCancelar = document.getElementById('btn-cancelar');
+    const titulo = document.getElementById('titulo');
+    let indexActualizar;
     
     btnCrear.addEventListener('click', event => {
         let objetoDatos = {
@@ -36,35 +39,34 @@ window.onload = function () {
     });
     
     btnActualizar.addEventListener('click', event => {
-        let objetoDatos = {
-            nombre: '',
-            usuario: '',
-            correo: '',
-            descripcion: '',
-        }
-
         let nombre = document.getElementById('nombre').value;
         let usuario = document.getElementById('usuario').value;
         let correo = document.getElementById('correo').value;
         let descripcion = document.getElementById('descripcion').value;
 
-        objetoDatos.nombre = nombre;
-        objetoDatos.usuario = usuario;
-        objetoDatos.correo = correo;
-        objetoDatos.descripcion = descripcion;
-        
-        arregloData.push(objetoDatos);
-        //logica del local storage
-        if (localStorage.getItem('valores') == null) {
-            localStorage.setItem('valores', JSON.stringify(arregloData))
-        } else {
-            let datos = JSON.parse(localStorage.getItem('valores'));
-            datos.push(objetoDatos);
-
-            localStorage.setItem('valores', JSON.stringify(datos));
-        }
+        let datos = JSON.parse(localStorage.getItem('valores'));
+        datos[indexActualizar].nombre = nombre;
+        datos[indexActualizar].usuario = usuario;
+        datos[indexActualizar].correo = correo;
+        datos[indexActualizar].descripcion = descripcion;
+        localStorage.setItem('valores', JSON.stringify(datos));
         cargaDatosGuardados();
     });
+
+    btnCancelar.addEventListener('click', event => {
+        titulo.textContent = 'Crear';
+        btnCrear.classList.remove("d-none");
+        btnActualizar.classList.add('d-none');
+        btnCancelar.disabled = true;
+        limpiar();
+    });
+
+    function limpiar(){
+        let nombre = document.getElementById('nombre').value = '';
+        let usuario = document.getElementById('usuario').value = '';
+        let correo = document.getElementById('correo').value = '';
+        let descripcion = document.getElementById('descripcion').value = '';
+    }
 
     function cargaDatosGuardados() {
         //document.body.innerHTML = '';
@@ -106,7 +108,7 @@ window.onload = function () {
                 botonEliminiar.className = 'btn btn-sm mx-1 btn-danger btn-eliminar';
                 let textEliminar = document.createTextNode('Borrar');
                 botonEliminiar.addEventListener('click', event => {
-                    alert('eliminar');
+                    eliminar(botonEliminiar);
                 });
                 botonEliminiar.appendChild(textEliminar);
 
@@ -130,15 +132,32 @@ window.onload = function () {
                 id++;
             });
         }
+        limpiar()
     }
-    function editar(botonEditar){
-        let index = botonEditar.parentNode.parentNode.dataset.index;
-        let data = JSON.parse(localStorage.getItem('valores'))[index];
 
-        let nombre = document.getElementById('nombre').value = data.nombre;
-        let usuario = document.getElementById('usuario').value = data.usuario;
-        let correo = document.getElementById('correo').value = data.correo;
-        let descripcion = document.getElementById('descripcion').value = data.descripcion;
+    function editar(botonEditar){
+        indexActualizar = botonEditar.parentNode.parentNode.dataset.index;
+        let data = JSON.parse(localStorage.getItem('valores'))[indexActualizar];
+        titulo.textContent = 'Editar';
+        btnCrear.classList.add('d-none');
+        btnActualizar.classList.remove("d-none");
+        btnCancelar.disabled = false;
+
+        document.getElementById('nombre').value = data.nombre;
+        document.getElementById('usuario').value = data.usuario;
+        document.getElementById('correo').value = data.correo;
+        document.getElementById('descripcion').value = data.descripcion;
     }
+
+    function eliminar(botonEliminiar){
+        indexDatos = botonEliminiar.parentNode.parentNode.dataset.index;
+        let datos = JSON.parse(localStorage.getItem('valores'));
+        let filtrados = datos.filter(function(currentValue, index, arr){
+            return indexDatos !=index;
+        })
+        localStorage.setItem('valores', JSON.stringify(filtrados));
+        cargaDatosGuardados();
+    }
+
     cargaDatosGuardados();
 }

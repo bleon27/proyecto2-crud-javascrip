@@ -109,20 +109,8 @@
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                 <div
                     class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 class="h2">Dashboard</h1>
-                    <div class="btn-toolbar mb-2 mb-md-0">
-                        <div class="btn-group me-2">
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-                            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
-                        </div>
-                        <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
-                            <span data-feather="calendar"></span>
-                            This week
-                        </button>
-                    </div>
+                    <h1 class="h2" id="titulo">Crear</h1>
                 </div>
-
-                <h2>Section title</h2>
 
 
                 <form class="row g-3">
@@ -155,12 +143,12 @@
                     <div class="col-auto w-100 text-center">
                         <div class="d-grid gap-2 d-md-block">
                             <button class="btn btn-primary" type="button" id="btn-crear">Crear</button>
-                            <button class="btn btn-warning d-none" type="button" id="eliminar">Editar</button>
-                            <button class="btn btn-danger" type="button" disabled>Cancelar</button>
+                            <button class="btn btn-warning d-none" type="button" id="btn-actualizar">Actualizar</button>
+                            <button class="btn btn-danger" type="button" disabled id="btn-cancelar">Cancelar</button>
                         </div>
                     </div>
                 </form>
-                <div class="table-responsive">
+                <div class="table-responsive mt-4">
                     <table class="table table-striped table-sm" id="tabla">
                         <thead>
                             <tr>
@@ -178,59 +166,21 @@
             </main>
         </div>
     </div>
+    <footer class="blog-footer">
+        <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a
+                href="https://twitter.com/mdo">@mdo</a>.</p>
+        <p>
+            <a href="#">Back to top</a>
+        </p>
+    </footer>
 
-    <main class="d-flex justify-content-center">
-        <div class="content">
-            <h1>Crud LocalStorage</h1>
-            <h1 class="title">Crear</h1>
-            <div class="d-flex justify-content-center">
-                <div class="crear-ediar myx">
-                    <div class="form-groups">
-                        <label for="nombre" class="myx">Nombre</label>
-                        <input type="text" class="myx" name="nombre" id="nombre" placeholder="Ingresa el nombre">
-                    </div>
-                    <div class="form-groups">
-                        <label for="usuario" class="myx">Usuario</label>
-                        <input type="text" class="myx" name="usuario" id="usuario" placeholder="Ingresa el Usuario">
-                    </div>
-                    <div class="form-groups">
-                        <label for="correo" class="myx">Correo</label>
-                        <input type="text" class="myx" name="correo" id="correo" placeholder="Ingresa el Correo">
-                    </div>
-                    <div class="form-groups">
-                        <label for="descripcion" class="myx">Descripción</label>
-                        <textarea type="text" class="myx" rows="5" name="descripcion" id="descripcion"
-                            placeholder="Ingresa la Descripción"></textarea>
-                    </div>
-                    <div class="button-groups">
-                        <button type="button" class="myx btn btn-primary" id="btn-crea">Crear</button>
-                        <button type="button" class="myx btn btn-warning d-none" id="btn-actualizar">actualizar</button>
-                        <button type="button" class="myx btn btn-danger" disabled id="btn-cancelar">Cancelar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="listar myx">
-                <table id="tabla">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Usuario</th>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Descripción</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                    <tfoot></tfoot>
-                </table>
-            </div>
-        </div>
-    </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+        integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+        crossorigin="anonymous"></script>
+    <script src="dashboard.js"></script>
     <script src="./app.js"></script>
 </body>
 
